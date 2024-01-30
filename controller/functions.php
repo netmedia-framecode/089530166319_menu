@@ -105,7 +105,7 @@ if (isset($_SESSION["project_menu"]["users"])) {
         alert($message, $message_type);
         return false;
       }
-      $sql = "INSERT INTO menu(image,judul,deskripsi,harga) VALUES('$image','$data[judul]','$data[deskripsi]','$data[harga]')";
+      $sql = "INSERT INTO menu(id_kategori,image,judul,deskripsi,harga) VALUES('$data[id_kategori]','$image','$data[judul]','$data[deskripsi]','$data[harga]')";
     }
 
     if ($action == "update") {

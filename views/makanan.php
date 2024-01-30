@@ -1,5 +1,5 @@
 <?php require_once("../controller/script.php");
-$_SESSION["project_menu"]["name_page"] = "Menu";
+$_SESSION["project_menu"]["name_page"] = "Makanan";
 require_once("../templates/views_top.php"); ?>
 
 <!-- Begin Page Content -->
@@ -34,7 +34,7 @@ require_once("../templates/views_top.php"); ?>
             </tr>
           </tfoot>
           <tbody>
-            <?php foreach ($views_menu as $data) { ?>
+            <?php foreach ($views_menu_makanan as $data) { ?>
               <tr>
                 <td><img src="../assets/img/menu/<?= $data['image'] ?>" style="width: 150px;" alt=""></td>
                 <td><?= $data['judul'] ?></td>
@@ -57,6 +57,7 @@ require_once("../templates/views_top.php"); ?>
                           <input type="hidden" name="id_menu" value="<?= $data['id_menu'] ?>">
                           <input type="hidden" name="judulOld" value="<?= $data['judul'] ?>">
                           <input type="hidden" name="imageOld" value="<?= $data['image'] ?>">
+                          <input type="hidden" name="menu" value="makanan">
                           <div class="modal-body">
                             <div class="form-group">
                               <label for="image">Gambar</label>
@@ -102,6 +103,7 @@ require_once("../templates/views_top.php"); ?>
                           <input type="hidden" name="id_menu" value="<?= $data['id_menu'] ?>">
                           <input type="hidden" name="judul" value="<?= $data['judul'] ?>">
                           <input type="hidden" name="image" value="<?= $data['image'] ?>">
+                          <input type="hidden" name="menu" value="makanan">
                           <div class="modal-body">
                             <p>Jika anda yakin ingin menghapus data ini, klik Hapus!</p>
                           </div>
@@ -132,6 +134,8 @@ require_once("../templates/views_top.php"); ?>
           </button>
         </div>
         <form action="" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="id_kategori" value="1">
+          <input type="hidden" name="menu" value="makanan">
           <div class="modal-body">
             <div class="form-group">
               <label for="image">Gambar</label>

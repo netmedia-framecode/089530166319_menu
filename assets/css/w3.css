@@ -14,6 +14,9 @@ html {
 }
 body {
   margin: 0;
+  background-image: url(../img/bg_menu.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 article,
 aside,
@@ -1700,7 +1703,7 @@ body {
 
 .shop-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: start;
   align-items: center;
   flex-wrap: wrap;
   padding: 20px;

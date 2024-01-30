@@ -22,7 +22,8 @@ require_once("../templates/views_top.php"); ?>
               <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="menu">Lihat Detail</a>
+              <a class="dropdown-item" href="makanan">Detail Makanan</a>
+              <a class="dropdown-item" href="minuman">Detail Minuman</a>
             </div>
           </div>
         </div>
@@ -35,6 +36,7 @@ require_once("../templates/views_top.php"); ?>
                   <th class="text-center">Gambar</th>
                   <th class="text-center">Judul</th>
                   <th class="text-center">Deskripsi</th>
+                  <th class="text-center">Kategori</th>
                   <th class="text-center">Harga</th>
                 </tr>
               </thead>
@@ -43,6 +45,7 @@ require_once("../templates/views_top.php"); ?>
                   <th class="text-center">Gambar</th>
                   <th class="text-center">Judul</th>
                   <th class="text-center">Deskripsi</th>
+                  <th class="text-center">Kategori</th>
                   <th class="text-center">Harga</th>
                 </tr>
               </tfoot>
@@ -52,6 +55,11 @@ require_once("../templates/views_top.php"); ?>
                     <td><img src="../assets/img/menu/<?= $data['image'] ?>" style="width: 150px;" alt=""></td>
                     <td><?= $data['judul'] ?></td>
                     <td><?= $data['deskripsi'] ?></td>
+                    <td><?php if ($data['id_kategori'] == 1) {
+                          echo "Makanan";
+                        } else {
+                          echo "Minuman";
+                        } ?></td>
                     <td>Rp. <?= number_format($data['harga']) ?></td>
                   </tr>
                 <?php } ?>

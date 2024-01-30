@@ -8,11 +8,13 @@ require_once("functions.php");
 
 $messageTypes = ["success", "info", "warning", "danger", "dark"];
 
-$baseURL = "http://$_SERVER[HTTP_HOST]/apps/other/089530166319/menu/";
+$baseURL = "https://$_SERVER[HTTP_HOST]/apps/other/089530166319/menu/";
 $name_website = "Toko Online";
 
-$select_menu = "SELECT * FROM menu";
-$views_menu = mysqli_query($conn, $select_menu);
+$select_menu_makanan = "SELECT * FROM menu WHERE id_kategori='1'";
+$views_menu_makanan = mysqli_query($conn, $select_menu_makanan);
+$select_menu_minuman = "SELECT * FROM menu WHERE id_kategori='2'";
+$views_menu_minuman = mysqli_query($conn, $select_menu_minuman);
 
 if (!isset($_SESSION["project_menu"]["users"])) {
   if (isset($_SESSION["project_menu"]["time_message"]) && (time() - $_SESSION["project_menu"]["time_message"]) > 2) {
@@ -45,6 +47,8 @@ if (isset($_SESSION["project_menu"]["users"])) {
 
   $select_menu_limit = "SELECT * FROM menu ORDER BY id_menu DESC LIMIT 10";
   $views_menu_limit = mysqli_query($conn, $select_menu_limit);
+  $select_menu = "SELECT * FROM menu";
+  $views_menu = mysqli_query($conn, $select_menu);
   if (isset($_POST["add_menu"])) {
     $validated_post = array_map(function ($value) use ($conn) {
       return valid($conn, $value);
@@ -53,7 +57,7 @@ if (isset($_SESSION["project_menu"]["users"])) {
       $message = "Menu baru berhasil ditambahkan.";
       $message_type = "success";
       alert($message, $message_type);
-      header("Location: menu");
+      header("Location: " . $_POST['menu']);
       exit();
     }
   }
@@ -65,7 +69,7 @@ if (isset($_SESSION["project_menu"]["users"])) {
       $message = "Menu " . $_POST['judulOld'] . " berhasil di ubah.";
       $message_type = "success";
       alert($message, $message_type);
-      header("Location: menu");
+      header("Location: " . $_POST['menu']);
       exit();
     }
   }
@@ -77,7 +81,7 @@ if (isset($_SESSION["project_menu"]["users"])) {
       $message = "Menu " . $_POST['judul'] . " berhasil di hapus.";
       $message_type = "success";
       alert($message, $message_type);
-      header("Location: menu");
+      header("Location: " . $_POST['menu']);
       exit();
     }
   }

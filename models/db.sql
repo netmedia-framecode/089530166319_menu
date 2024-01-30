@@ -1,6 +1,7 @@
 -- Active: 1651820926135@@127.0.0.1@3306@6289530166319
 CREATE TABLE menu(
   id_menu INT AUTO_INCREMENT PRIMARY KEY,
+  id_kategori INT,
   image VARCHAR(50),
   judul VARCHAR(100),
   deskripsi TEXT,
